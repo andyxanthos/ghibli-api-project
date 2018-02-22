@@ -9,16 +9,17 @@ var command = argv._[0]
 
 switch (command) {
     case 'people':
-        people.findPeople((errorMsg, results) => { 
-            results.peopleList.forEach((person) => {
-                if (errorMsg) {
-                    console.log(errorMsg)
-                } else {
-                    console.log('---------')
-                    console.log(`Name: ${person.name}`)
-                    console.log(`Age: ${person.age}`)
-                    console.log(`Hair/eyes: ${person.hair_color}/${person.eye_color}`)
-                }
+        people.findPeople((errorMsg, results) => {
+            if (errorMsg) {
+                console.log(errorMsg)
+            } else {
+                results.peopleList.forEach((person) => {
+                console.log('---------')
+                console.log(`Name: ${person.name}`)
+                console.log(`Age: ${person.age}`)
+                console.log(`Hair/eyes: ${person.hair_color}/${person.eye_color}`)
+            }
+
             })
         })
         break
@@ -41,3 +42,6 @@ switch (command) {
 }
 
 
+// TODO
+// - Implement search for specific characters/places
+//      - use yargs

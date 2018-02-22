@@ -5,7 +5,7 @@ const films = require('./films')
 
 var argv = yargs.help().alias('help', 'h').argv
             
-var command = args._[0]
+var command = argv._[0]
 
 switch (command) {
     case 'people':

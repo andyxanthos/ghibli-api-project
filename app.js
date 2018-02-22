@@ -5,7 +5,7 @@ var command = process.argv[2]
 
 switch (command) {
     case 'people':
-        people.findPeople((errorMsg, results) => { // Add error handling here
+        people.findPeople((errorMsg, results) => { 
             results.peopleList.forEach((person) => {
                 if (errorMsg) {
                     console.log(errorMsg)
@@ -33,7 +33,7 @@ switch (command) {
         })
         break;
     default:
-        console.log("Not recongized. Run node app.js --help for help")    
+        console.log("Not recongized. Run 'node app.js --help' for help")    
 }
 
 

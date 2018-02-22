@@ -1,0 +1,23 @@
+{
+  "name": "side-project",
+  "version": "1.0.0",
+  "description": "The intention behind this project was to learn how to work with third-party JSON APIs.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andyxanthos/ghibli-api-project.git"
+  },
+  "author": "Andrew Xanthos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andyxanthos/ghibli-api-project/issues"
+  },
+  "homepage": "https://github.com/andyxanthos/ghibli-api-project#readme",
+  "dependencies": {
+    "request": "^2.83.0",
+    "yargs": "^11.0.0"
+  }
+}

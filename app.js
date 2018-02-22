@@ -1,7 +1,11 @@
+const yargs = require('yargs')
+
 const people = require('./people')
 const films = require('./films')
 
-var command = process.argv[2]
+var argv = yargs.help().alias('help', 'h').argv
+            
+var command = args._[0]
 
 switch (command) {
     case 'people':
@@ -33,7 +37,7 @@ switch (command) {
         })
         break;
     default:
-        console.log("Not recongized. Run 'node app.js --help' for help")    
+        console.log("Not recongized. Run 'node app.js -h' for help")    
 }
 
 

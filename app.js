@@ -27,6 +27,7 @@ var argv = yargs
 var command = argv._[0]
 
 switch (command) {
+
     case 'people':
         people.findPeople((errorMsg, results) => {
             if (errorMsg) {
@@ -41,6 +42,7 @@ switch (command) {
             }
         })
         break
+
     case 'person':
         var personName = argv.name
         people.findPerson(personName, (errorMsg, results) => {
@@ -52,42 +54,36 @@ switch (command) {
                 console.log(`Hair color: ${results.hairColor}`)
             }
         })
-        break    
+        break
+
     case 'films':
         films.findFilms((errorMsg, results) => {
             if (errorMsg) {
                 console.log(errorMsg)
             } else {
-                results.filmList.forEach((movie) => {
+                results.filmList.forEach((film) => {
                     console.log('---------')
-                    console.log(`Title: ${movie.title}`)
-                    console.log(`Release date: ${movie.release_date}`)
-                    console.log(`Director: ${movie.director}`)
+                    console.log(`Title: ${film.title}`)
+                    console.log(`Release date: ${film.release_date}`)
+                    console.log(`Director: ${film.director}`)
                 })
             }
         })
         break
-        case 'film':
-            var filmTitle = argv.title
-            films.findFilm(filmTitle, (errorMsg, results) => {
-                if (errorMsg) {
-                    console.log(errorMsg)
-                } else {
-                    console.log(`Title: ${results.title}`)
-                    console.log(`Released: ${results.releaseDate}`)
-                    console.log(`Director: ${results.director}`)
-                }
-            })
-        break
+
+    case 'film':
+        var filmTitle = argv.title
+        films.findFilm(filmTitle, (errorMsg, results) => {
+            if (errorMsg) {
+                console.log(errorMsg)
+            } else {
+                console.log(`Title: ${results.title}`)
+                console.log(`Released: ${results.releaseDate}`)
+                console.log(`Director: ${results.director}`)
+            }
+        })
+    break
+
     default:
         console.log("Not recongized. Run 'node app.js -h' for help.")    
 }
-
-
-// TODO
-// - Implement search for specific characters/places
-//      - use yargs
-
-/* if a specific person/film is defined,
-*  use .filter to find the one requested
-*/ 

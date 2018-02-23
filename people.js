@@ -15,6 +15,29 @@ var findPeople = (callback) => {
     })
 }
 
+var findPerson = (name, callback) => {
+    request({
+        url: "https://ghibliapi.herokuapp.com/people",
+        json: true
+    }, (error, response, body) => {
+        if (!error && response.statusCode === 200) {
+            var person = body.filter((person) => person.name === name)
+            if (person) {
+                callback(undefined, {
+                    name: person[0].name,
+                    age: person[0].age,
+                    hairColor: person[0].hair_color
+                })
+            } else {
+                callback('Can not find that person')
+            }
+        } else {
+            callback('Can not find that person.')
+        }
+    })
+}
+
 module.exports = {
-    findPeople
+    findPeople,
+    findPerson
 }

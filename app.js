@@ -67,6 +67,18 @@ switch (command) {
             }
         })
         break
+        case 'film':
+            var filmTitle = argv.title
+            films.findFilm(filmTitle, (errorMsg, results) => {
+                if (errorMsg) {
+                    console.log(errorMsg)
+                } else {
+                    console.log(`Title: ${results.title}`)
+                    console.log(`Released: ${results.releaseDate}`)
+                    console.log(`Director: ${results.director}`)
+                }
+            })
+        break
     default:
         console.log("Not recongized. Run 'node app.js -h' for help.")    
 }

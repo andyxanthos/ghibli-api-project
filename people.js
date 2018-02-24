@@ -26,7 +26,8 @@ var findPerson = (name, callback) => {
                 callback(undefined, {
                     name: person[0].name,
                     age: person[0].age,
-                    hairColor: person[0].hair_color
+                    hairColor: person[0].hair_color,
+                    eyeColor: person[0].eye_color
                 })
             } else {
                 callback('Can not find that person.')
@@ -36,6 +37,7 @@ var findPerson = (name, callback) => {
         }
     })
 }
+
 
 module.exports = {
     findPeople,

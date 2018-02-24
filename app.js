@@ -49,9 +49,10 @@ switch (command) {
             if (errorMsg) {
                 console.log(errorMsg)
             } else {
+                console.log('---------')
                 console.log(`Name: ${results.name}`)
                 console.log(`Age: ${results.age}`)
-                console.log(`Hair color: ${results.hairColor}`)
+                console.log(`Hair/Eyes: ${results.hairColor}/${results.eyeColor}`)
             }
         })
         break
@@ -82,7 +83,7 @@ switch (command) {
                 console.log(`Director: ${results.director}`)
             }
         })
-    break
+        break
 
     default:
         console.log("Not recongized. Run 'node app.js -h' for help.")    

@@ -29,31 +29,26 @@ var command = argv._[0]
 switch (command) {
 
     case 'people':
-        people.findPeople((errorMsg, results) => {
-            if (errorMsg) {
-                console.log(errorMsg)
-            } else {
-                results.peopleList.forEach((person) => {
-                console.log('---------')
+        people.getPeople().then((response) => {
+            response.peopleList.forEach((person) => {
+                console.log('--------')
                 console.log(`Name: ${person.name}`)
                 console.log(`Age: ${person.age}`)
-                console.log(`Hair/eyes: ${person.hair_color}/${person.eye_color}`)
+                console.log(`Eyes/Hair: ${person.eyeColor}/${person.hairColor}`)
             })
-            }
+        }, (errorMsg) => {
+            console.log(errorMsg)
         })
         break
 
     case 'person':
         var personName = argv.name
-        people.findPerson(personName, (errorMsg, results) => {
-            if (errorMsg) {
-                console.log(errorMsg)
-            } else {
-                console.log('---------')
-                console.log(`Name: ${results.name}`)
-                console.log(`Age: ${results.age}`)
-                console.log(`Hair/Eyes: ${results.hairColor}/${results.eyeColor}`)
-            }
+        people.getPerson(personName).then((response) => {
+            console.log(`Name: ${response.name}`)
+            console.log(`Age: ${response.age}`)
+            console.log(`Eyes/Hair: ${response.eyeColor}/${response.hairColor}`)
+        }, (errorMsg) => {
+            console.log(errorMsg)
         })
         break
 

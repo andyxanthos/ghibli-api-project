@@ -34,7 +34,7 @@ switch (command) {
                 console.log('--------')
                 console.log(`Name: ${person.name}`)
                 console.log(`Age: ${person.age}`)
-                console.log(`Eyes/Hair: ${person.eyeColor}/${person.hairColor}`)
+                console.log(`Eyes/Hair: ${person.eye_color}/${person.hair_color}`)
             })
         }, (errorMsg) => {
             console.log(errorMsg)

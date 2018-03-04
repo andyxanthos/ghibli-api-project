@@ -58,30 +58,28 @@ switch (command) {
         break
 
     case 'films':
-        films.findFilms((errorMsg, results) => {
-            if (errorMsg) {
+        films.getFilms().then((response) => {
+            response.filmList.forEach((film) => {
+                console.log('--------')
+                console.log(`Title: ${film.title}`)
+                console.log(`Released in ${film.release_date}`)
+                console.log(`Directed by ${film.director}`)
+            })
+        }, (errorMsg) => {
                 console.log(errorMsg)
-            } else {
-                results.filmList.forEach((film) => {
-                    console.log('---------')
-                    console.log(`Title: ${film.title}`)
-                    console.log(`Release date: ${film.release_date}`)
-                    console.log(`Director: ${film.director}`)
-                })
             }
-        })
+        )
         break
 
     case 'film':
         var filmTitle = argv.title
-        films.findFilm(filmTitle, (errorMsg, results) => {
-            if (errorMsg) {
-                console.log(errorMsg)
-            } else {
-                console.log(`Title: ${results.title}`)
-                console.log(`Released: ${results.releaseDate}`)
-                console.log(`Director: ${results.director}`)
-            }
+        films.getFilm(filmTitle).then((response) => {
+            console.log('--------')
+            console.log(`Title: ${response.title}`)
+            console.log(`Released in ${response.releaseDate}`)
+            console.log(`Directed by ${response.director}`)
+        }, (e) => {
+            console.log(e)
         })
         break
 
